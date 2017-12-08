@@ -1,0 +1,499 @@
+{
+  "version": "1.1511385032",
+  "name": "",
+  "type": "JMX",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "configUI": {
+    "displayName": ""
+  },
+  "processTypes": [
+    10,
+    12,
+    13,
+    16,
+    17,
+    18
+  ],
+  "metrics": [
+    { 
+	"timeseries": {
+      "key": "TotalPhysicalMemorySize",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+        ]
+      },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+          "type": "OperatingSystem"
+        },
+      "allowAdditionalKeys": false,
+      "attribute": "TotalPhysicalMemorySize",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},
+    {
+    "timeseries": {
+      "key": "FreePhysicalMemorySize",
+      "unit": "Count",
+      "dimensions": [
+          "rx_pid"
+        ]
+      },
+	"alert_settings": [
+	  {
+        "alert_id": "custom_free_mem_alert_high",
+        "event_type": "PERFORMANCE_EVENT",
+        "event_name": "Free Physical Memory",
+        "description": "The {metricname} of {severity} is {alert_condition} the threshold of {threshold}",
+        "threshold": 20.0,
+        "alert_condition": "BELOW",
+        "samples":5,
+        "violating_samples":3,
+        "dealerting_samples":5
+      }
+    ]	  
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "OperatingSystem"
+      }
+      "allowAdditionalKeys": false,
+      "attribute": "FreePhysicalMemorySize",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},  
+    {
+    "timeseries": {
+      "key": "CommittedVirtualMemorySize",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+        ]
+      },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "OperatingSystem"
+      }
+      "allowAdditionalKeys": false,
+      "attribute": "CommittedVirtualMemorySize",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},
+    {
+    "timeseries": {
+      "key": "TotalSwapSpaceSize",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "OperatingSystem"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "TotalSwapSpaceSize",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},
+    {
+    "timeseries": {
+      "key": "FreeSwapSpaceSize",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+	"alert_settings": [
+	  {
+        "alert_id": "custom_free_swap_alert_high",
+        "event_type": "PERFORMANCE_EVENT",
+        "event_name": "High GC time",
+        "description": "The {metricname} of {severity} is {alert_condition} the threshold of {threshold}",
+        "threshold": 1.0,
+        "alert_condition": "BELOW",
+        "samples":5,
+        "violating_samples":3,
+        "dealerting_samples":5
+      }
+    ]
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "OperatingSystem"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "FreeSwapSpaceSize",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},  
+    {
+    "timeseries": {
+      "key": "DaemonThreadCount",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "Threading"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "DaemonThreadCount",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+    },
+    {
+    "timeseries": {
+      "key": "PeakThreadCount",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+      },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "Threading"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "PeakThreadCount",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},  
+    {
+    "timeseries": {
+      "key": "ThreadCount",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "Threading"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "ThreadCount",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+    },
+    {
+    "timeseries": {
+      "key": "TotalStartedThreadCount",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "java.lang",
+      "keyProperties": {
+        "type": "Threading"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "TotalStartedThreadCount",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+    },
+    {
+    "timeseries": {
+      "key": "IsrExpandsPerSec.OneMinuteRate",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "kafka.server",
+      "keyProperties": {
+        "type": "ReplicaManager",
+        "name": "IsrExpandsPerSec"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "OneMinuteRate",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+    },
+    {
+    "timeseries": {
+      "key": "IsrShrinksPerSec.OneMinuteRate",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "kafka.server",
+      "keyProperties": {
+        "type": "ReplicaManager",
+        "name": "IsrShrinksPerSec"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "OneMinuteRate",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	},
+    {
+    "timeseries": {
+      "key": "LeaderAndIsr.Count",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "kafka.network",
+      "keyProperties": {
+        "type": "RequestMetrics",
+        "name": "LocalTimeMs",
+        "request": "LeaderAndIsr"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "Count",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+    },
+    {
+    "timeseries": {
+      "key": "RequestHandlerAvgIdlePercent.OneMinuteRate",
+      "unit": "Count",
+      "dimensions": [
+        "rx_pid"
+      ]
+    },
+    "source": {
+      "domain": "kafka.server",
+      "keyProperties": {
+        "type": "KafkaRequestHandlerPool",
+        "name": "RequestHandlerAvgIdlePercent"
+      },
+      "allowAdditionalKeys": false,
+      "attribute": "OneMinuteRate",
+      "calculateDelta": false,
+      "calculateRate": false,
+      "aggregation": "SUM"
+      }
+	}
+  ]
+  "ui": {
+    "keymetrics" : {
+      "key" : {
+        "group": "Replication",
+        "title": "Replication Manager",
+        "series": [
+          {
+          "key": "IsrExpandsPerSec.OneMinuteRate",
+          "aggregation": "avg",
+		  "mergeaggregation": "sum",
+          "displayname": "ISR Expands"
+          },
+          {
+          "key": "IsrShrinksPerSec.OneMinuteRate",
+          "aggregation": "avg",
+          "mergeaggregation": "sum",
+		  "displayname": "ISR Shrinks",
+          }
+        ]
+      }
+    }
+    "keycharts" : [	
+      "group": "Kafka Hosts",
+      "title": "Kafka Hosts",	  
+	  "series: 
+	    {
+		"key": "IsrExpandsPerSec.OneMinuteRate",
+        "aggregation": "avg",
+        "displayname": "ISR Expands / Min",
+		"color": "rgb(0,255,0)",
+        "seriestype": "LINE"
+        },
+        {
+        "key": "IsrShrinksPerSec.OneMinuteRate",
+        "aggregation": "avg",
+        "displayname": "ISR Shrinks / Min",
+        "color": "rgb(128,0,128)",
+        "seriestype": "LINE"
+        },
+	    {
+        "key": "LeaderAndIsr.Count",
+        "aggregation": "avg",
+        "displayname": "Leader Count",
+        "color": "rgb(0,0,255)",
+		"seriestype": "LINE"
+        },
+		{
+        "key": "RequestHandlerAvgIdlePercent.OneMinuteRate",
+        "aggregation": "avg",
+        "displayname": "Display name for metric",
+        "color": "(0,255,255)",
+        "seriestype": "area"
+        }
+    ],
+    "charts": [ 
+      {
+        "group": "Memory",
+        "title": "Memory Details",
+        "series": [
+          {
+          "key": "TotalPhysicalMemorySize",
+          "aggregation": "SUM",
+          "displayname": "Total Physical Memory",
+		  "color": "rgb(0,0,0)",
+          "seriestype": "LINE"
+          },
+          {
+          "key": "FreePhysicalMemorySize",
+          "aggregation": "AVG",
+          "displayname": "Free Physical Memory",
+          "color": "rgb(0,0,255)",
+          "seriestype": "LINE"
+          },
+          {
+          "key": "CommittedVirtualMemorySize",
+          "aggregation": "AVG",
+          "displayname": "Total Physical Memory",
+		  "color": "rgb(0,128,128)",
+          "seriestype": "LINE"
+          },
+          {
+          "key": "TotalSwapSpaceSize",
+          "aggregation": "AVG",
+          "displayname": "Total Physical Memory",
+		  "color": "rgb(0,255,0)",
+          "seriestype": "BAR",
+		  "stacked": "TRUE"
+          },
+          {
+          "key": "FreeSwapSpaceSize",
+          "aggregation": "SUM",
+          "displayname": "Free Physical Memory",
+          "color": "rgb(0,255,255)",
+          "seriestype": "AREA",
+		  "stacked": "TRUE"
+          }
+        ]
+      },
+      {
+        "group": "Threads",
+        "title": "Thread Details",
+        "series": [
+          {
+          "key": "DaemonThreadCount",
+          "aggregation": "avg",
+          "displayname": "Daemon Thread Count",
+          "color": "rgb(0,0,0)"
+		  "seriestype": "LINE"
+          },
+          {
+          "key": "PeakThreadCount",
+          "aggregation": "avg",
+          "displayname": "Peak Thread Count",
+          "color": "rgb(255,0,0)",
+          "seriestype": "LINE"
+          },
+          {
+          "key": "ThreadCount",
+          "aggregation": "avg",
+          "displayname": "Live Thread Count",
+          "color": "rbg(0,128,0)"
+          "seriestype": "BAR"
+		  "stacked": "TRUE"
+          },		  
+          {
+          "key": "TotalStartedThreadCount",
+          "aggregation": "avg",
+          "displayname": "Started Thread Count",
+          "color": "rbg(0,128,128)"
+          "seriestype": "BAR"
+		  "stacked": "TRUE"
+          }
+        ]
+      },
+      {
+        "group": "Replication",
+        "title": "Replication Manager",
+        "series": [
+          {
+          "key": "IsrExpandsPerSec.OneMinuteRate",
+          "aggregation": "avg",
+          "displayname": "ISR Expands / Min",
+		  "color": "rgb(0,255,0)",
+          "seriestype": "LINE"
+          },
+          {
+          "key": "IsrShrinksPerSec.OneMinuteRate",
+          "aggregation": "avg",
+          "displayname": "ISR Shrinks / Min",
+          "color": "rgb(128,0,128)",
+          "seriestype": "LINE"
+          },
+		  {
+          "key": "LeaderAndIsr.Count",
+          "aggregation": "avg",
+          "displayname": "Leader Count",
+          "color": "rgb(0,0,255)",
+		  "seriestype": "LINE"
+          },
+		  {
+          "key": "RequestHandlerAvgIdlePercent.OneMinuteRate",
+          "aggregation": "avg",
+          "displayname": "Display name for metric",
+          "color": "(0,255,255)",
+          "seriestype": "area"
+          },
+        ]
+      },	  
+      {
+        "group": "Section Name",
+        "title": "Chart Name",
+        "series": [
+          {
+          "key": "MetricName",
+          "aggregation": "avg",
+          "displayname": "Display name for metric",
+          "seriestype": "area"
+          },
+          {
+          "key": "Other Metric Name",
+          "aggregation": "avg",
+          "displayname": "Display name for metric",
+          "color": "rgba(42, 182, 244, 0.6)",
+          "seriestype": "area"
+          }
+        ]
+      }	  
+	]
+  }
+}
