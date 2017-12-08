@@ -1,0 +1,287 @@
+{
+    "version": "1.12012017",
+    "name": "custom.jmx.KafkaBrokerMetrics",
+    "type": "JMX",
+    "entity": "PROCESS_GROUP_INSTANCE",
+    "configUI": {
+        "displayName": "Kafka Broker Metrics"
+    },
+    "processTypes": [
+        10,
+        12,
+        13,
+        16,
+        17,
+        18
+    ],
+	"technologies": ["Kafka"],
+	"activation": "Singleton",
+    "metrics": [
+        {
+			"timeseries": {
+                "key": "BytesInPerSec",
+                "unit": "Count",
+				"displayname": "Bytes In Per Second",
+                "dimensions": [
+                    "rx_pid",
+                    "topic"
+                ]
+            },
+            "source": {
+                "domain": "kafka.server",
+                "keyProperties": {
+                    "type": "BrokerTopicMetrics",
+                    "name": "BytesInPerSec",
+                    "topic": "*"
+                },
+                "allowAdditionalKeys": false,
+                "attribute": "Count",
+                "calculateDelta": false,
+                "calculateRate": false,
+                "aggregation": "SUM",
+                "splitting": {
+                    "name": "topic",
+                    "type": "keyProperty",
+                    "keyProperty": "topic"
+                }
+            }
+        },
+        {
+            "timeseries": {
+                "key": "BytesOutPerSec",
+                "unit": "Count",
+				"displayname": "Bytes Out Per Second",				
+                "dimensions": [
+                    "rx_pid",
+                    "topic"
+                ]
+            },
+            "source": {
+                "domain": "kafka.server",
+                "keyProperties": {
+                    "type": "BrokerTopicMetrics",
+                    "name": "BytesOutPerSec",
+                    "topic": "*"
+                },
+                "allowAdditionalKeys": false,
+                "attribute": "Count",
+                "calculateDelta": false,
+                "calculateRate": false,
+                "aggregation": "SUM",
+                "splitting": {
+                    "name": "topic",
+                    "type": "keyProperty",
+                    "keyProperty": "topic"
+                }
+            }
+        },
+        {
+            "timeseries": {
+                "key": "MessagesInPerSec",
+                "unit": "Count",
+				"displayname": "Messages In Per Second",
+                "dimensions": [
+                    "rx_pid",
+                    "topic"
+                ]
+            },
+            "source": {
+                "domain": "kafka.server",
+                "keyProperties": {
+                    "type": "BrokerTopicMetrics",
+                    "name": "MessagesInPerSec",
+                    "topic": "*"
+                },
+                "allowAdditionalKeys": false,
+                "attribute": "Count",
+                "calculateDelta": false,
+                "calculateRate": false,
+                "aggregation": "SUM",
+                "splitting": {
+                    "name": "topic",
+                    "type": "keyProperty",
+                    "keyProperty": "topic"
+                }
+            }
+        },
+        {
+            "timeseries": {
+                "key": "TotalFetchRequestsPerSec",
+                "unit": "Count",
+				"displayname": "Total Fetch Request Per Second",
+                "dimensions": [
+                    "rx_pid",
+                    "topic"
+                ]
+            },
+            "source": {
+                "domain": "kafka.server",
+                "keyProperties": {
+                    "type": "BrokerTopicMetrics",
+                    "name": "TotalFetchRequestsPerSec",
+                    "topic": "*"
+                },
+                "allowAdditionalKeys": false,
+                "attribute": "Count",
+                "calculateDelta": false,
+                "calculateRate": false,
+                "aggregation": "SUM",
+                "splitting": {
+                    "name": "topic",
+                    "type": "keyProperty",
+                    "keyProperty": "topic"
+                }
+            }
+        },
+        {
+            "timeseries": {
+                "key": "TotalProduceRequestsPerSec",
+                "unit": "Count",
+				"displayname": "Total Produce Requests Per Second",
+                "dimensions": [
+                    "rx_pid",
+                    "topic"
+                ]
+            },
+            "source": {
+                "domain": "kafka.server",
+                "keyProperties": {
+                    "type": "BrokerTopicMetrics",
+                    "name": "TotalProduceRequestsPerSec",
+                    "topic": "*"
+                },
+                "allowAdditionalKeys": false,
+                "attribute": "Count",
+                "calculateDelta": false,
+                "calculateRate": false,
+                "aggregation": "SUM",
+                "splitting": {
+                    "name": "topic",
+                    "type": "keyProperty",
+                    "keyProperty": "topic"
+                }
+            }
+        },
+		{
+			"timeseries": {
+				"key": "ExpiresPerSec",
+				"unit": "Count",
+				"displayname": "Expires Per Second",
+				"dimensions": [
+					"rx_pid",
+					"fetcherType"
+				]
+		},
+		"source": {
+			"domain": "kafka.server",
+        "keyProperties": {
+          "type": "DelayedFetchMetrics",
+		  "name" : "ExpiresPerSec",
+		  "fetcherType" : "*"
+        },
+        "allowAdditionalKeys": true,
+        "attribute": "Count",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM",
+        "splitting": {
+            "name": "fetcherType",
+            "type": "keyProperty",
+            "keyProperty": "fetcherType"
+        }
+      }
+    },
+	{
+      "timeseries": {
+        "key": "KafkaRequestHandlerPool",
+        "unit": "Count",
+        "displayname": "Request Handler Pool",
+        "dimensions": [
+          "rx_pid",
+          "fetcherType"
+        ]
+      },
+      "source": {
+        "domain": "kafka.server",
+        "keyProperties": {
+          "type": "KafkaRequestHandlerPool",
+		  "name" : "RequestHandlerAvgIdlePercent"
+		},
+        "allowAdditionalKeys": true,
+        "attribute": "Count",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM",
+        "splitting": {
+            "name": "fetcherType",
+            "type": "keyProperty",
+            "keyProperty": "fetcherType"
+        }
+      }
+    }
+    ],
+    "ui": {
+		"pgmetrics": [
+		{
+			"key": "BytesInPerSec",
+			"displayname": "BytesInPerSec"
+		}
+		],
+        "charts": [
+            {
+                "group": "Kafka Broker Topic Metrics",
+                "title": "Kafka Broker Topic Metrics",
+                "series": [
+                    {
+                        "key": "BytesInPerSec",
+                        "displayname": "BytesInPerSec",
+                        "color": "rgb(255,255,0)",
+                        "seriestype": "area"
+                    },
+                    {
+                        "key": "BytesOutPerSec",
+                        "displayname": "BytesOutPerSec",
+                        "color": "rgb(0,255,0)",
+                        "seriestype": "line"
+                    },
+                    {
+                        "key": "MessagesInPerSec",
+                        "displayname": "MessagesInPerSec",
+                        "color": "#006bba",
+                        "seriestype": "bar"
+                    },
+                    {
+                        "key": "TotalFetchRequestsPerSec",
+                        "displayname": "TotalFetchRequestsPerSec",
+                        "color": "rgb(0,0,255)",
+                        "seriestype": "area"
+                    },
+                    {
+                        "key": "TotalProduceRequestsPerSec",
+                        "displayname": "TotalProduceRequestsPerSec",
+                        "color": "rgb(90,90,90)",
+                        "seriestype": "line"
+                    }
+                ]
+            },
+			{
+				"group": "Kafka DelayedFetchMetrics",
+				"title": "Kafka DelayedFetchMetrics",
+				"series": [
+					{
+						"key": "ExpiresPerSec",
+						"displayname": "ExpiresPerSec",
+						"seriestype": "area"
+					},
+					{
+						"key": "KafkaRequestHandlerPool",
+						"displayname": "RequestHandlerAvgIdlePercent",
+						"seriestype": "area"
+					}
+				]
+			}
+        ],
+        "keycharts": 
+		[]
+    }
+}

@@ -1,0 +1,358 @@
+{
+  "version": "1.12012017",
+  "name": "custom.jmx.KafkaConsumerMetrics",
+  "type": "JMX",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "configUI": {
+    "displayName": "Kafka Consumer Metrics"
+  },
+  "processTypes": [
+    10,
+    12,
+    13,
+    16,
+    17,
+    18
+  ],
+  "metrics": [
+    {
+      "timeseries": {
+        "key": "kafka.BytesPerSec",
+        "unit": "Count",
+		"displayname": "Bytes Per Second",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "BytesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "Count",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.BytesPerSec15MinuteRate",
+        "unit": "Count",
+		"displayname": "Bytes Per Second - 15min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "BytesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "FifteenMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.BytesPerSec5MinuteRate",
+        "unit": "Count",
+		"displayname": "Bytes Per Second - 5min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "BytesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "FiveMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.BytesPerSecMeanRate",
+        "unit": "Count",
+		"displayname": "Bytes Per Second - Mean Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "BytesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "MeanRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.BytesPerSec1MinuteRate",
+        "unit": "Count",
+		"displayname": "Bytes Per Second - 1min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "BytesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "OneMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.MessagesPerSec",
+        "unit": "Count",
+		"displayname": "Messages Per Second",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "MessagesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "Count",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.MessagesPerSec15MinuteRate",
+        "unit": "Count",
+		"displayname": "Messages Per Second - 15min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "MessagesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "FifteenMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.MessagesPerSec5MinuteRate",
+        "unit": "Count",
+		"displayname": "Messages Per Second - 5min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "MessagesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "FiveMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.MessagesPerSecMeanRate",
+        "unit": "Count",
+		"displayname": "Messages Per Second - Mean Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "MessagesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "MeanRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.MessagesPerSec1MinuteRate",
+        "unit": "Count",
+		"displayname": "Messages Per Second - 1min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ConsumerTopicMetrics",
+          "name": "MessagesPerSec",
+          "clientId": "computeGrid",
+          "topic": "pi-events"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "OneMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.ZooKeeperCommitsPerSec",
+        "unit": "Count",
+		"displayname": "ZooKeeper Commits Per Second",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ZookeeperConsumerConnector",
+          "name": "ZooKeeperCommitsPerSec",
+          "clientId": "computeGrid"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "Count",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    },
+    {
+      "timeseries": {
+        "key": "kafka.ZooKeeperCommitsPerSec1MinuteRate",
+        "unit": "Count",
+		"displayname": "ZooKeeper Commits Per Second - 1min Rate",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "kafka.consumer",
+        "keyProperties": {
+          "type": "ZookeeperConsumerConnector",
+          "name": "ZooKeeperCommitsPerSec",
+          "clientId": "computeGrid"
+        },
+        "allowAdditionalKeys": false,
+        "attribute": "OneMinuteRate",
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "SUM"
+      }
+    }
+  ],
+      "ui" :
+  {
+    "charts" : [
+	{
+        "group" : "Kafka Consumer",
+		"title" : "Kafka Consumer",
+		"series" : [
+          {
+            "key" : "kafka.BytesPerSec",
+            "displayname" : "kafka.BytesPerSec",
+            "rightaxis" : true,
+            "color" : "rgba(101,152,186,0.4)",
+            "seriestype" : "bar",
+            "mergeaggregation" : "sum"
+          },
+          {
+            "key" : "kafka.BytesPerSec1MinuteRate",
+            "displayname" : "kafka.BytesPerSec1MinuteRate",
+            "seriestype" : "area",
+            "mergeaggregation" : "sum"
+          },
+          {
+            "key" : "kafka.MessagesPerSec",
+            "displayname" : "kafka.MessagesPerSec",
+            "color" : "#00558e",
+            "seriestype" : "area",
+            "mergeaggregation" : "sum"
+          },
+		  {
+            "key" : "kafka.MessagesPerSec1MinuteRate",
+            "displayname" : "kafka.MessagesPerSec1MinuteRate",
+            "color" : "#00558e",
+            "seriestype" : "area",
+            "mergeaggregation" : "sum"
+          },
+		  {
+            "key" : "kafka.ZooKeeperCommitsPerSec",
+            "displayname" : "kafka.ZooKeeperCommitsPerSec",
+            "color" : "#00558e",
+            "seriestype" : "area",
+            "mergeaggregation" : "sum"
+          },
+		  {
+            "key" : "kafka.ZooKeeperCommitsPerSec1MinuteRate",
+            "displayname" : "kafka.ZooKeeperCommitsPerSec1MinuteRate",
+            "color" : "#00558e",
+            "seriestype" : "area",
+            "mergeaggregation" : "sum"
+          }
+        ]
+      }
+    ]
+  }
+}
