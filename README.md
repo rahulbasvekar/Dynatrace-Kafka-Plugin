@@ -1,0 +1,1 @@
+#wwse-kafka-custom-plugin
