@@ -5,8 +5,7 @@ The Dynatrace-Kafka-Plugin is based on the JMX Plugin and allows the Dynatrace O
 * Dynatrace Environment with OneAgent Installed on Kafka hosts
 * Dynatrace Environment permissions to upload custom plugins
 ## Installation
-OneAgent Plugins need to get installed both, on your Tenant and on the host(s) they are supposed to collect data for - mainly for security reasons. NO third party code is getting executed by your OneAgent unless your Tenant and your Agent agree on the authenticity of your plugin.
-This is why you need to install, in addition to your Tenant, on selected Hosts, that have OneAgent running and are supposed to execute your Plugin.
+For this plugin to work, a OneAgent must be installed on the host where the JMX emitting process is running.  
 ## Installation on your Dynatrace Tenant
 * From the 'Settings' -> 'Monitoring' -> 'Monitored Technologies' section, select 'Custom plugins' tab
 * Click on the button 'Upload Plugin' and select the Kafka.json files you wish to use.
