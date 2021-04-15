@@ -1,3 +1,5 @@
+> *Note*: 2021-04-15 - This plugin is archived and as such neither maintained nor supported by Dynatrace any longer. Using it in production is not encouraged.
+
 #  Dynatrace-Kafka-Plugin
 The Dynatrace-Kafka-Plugin is based on the JMX Plugin and allows the Dynatrace OneAgent to collect JMX based metrics associated with the Kafka Broker, Kafka Consumers and Kafka Producers. 
 
